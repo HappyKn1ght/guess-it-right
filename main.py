@@ -16,14 +16,19 @@ while True:
                 
         if user_guess == computer:
             print(f"You Guessed it right in {attempt} attempts!")
-            break
+            user_again = input("Do you want to play again? ").lower().strip()
+            if user_again != 'y':
+                break
+            computer = random.randint(1,100)
+            print(computer)
+            attempt = 0
 
         elif user_guess < computer:
             print("Guess Higher!")
             
-
         else: 
             print("Guess Lower!")
-           
+
     except ValueError:
         print("Invalid input! Please enter a valid number.")
+           

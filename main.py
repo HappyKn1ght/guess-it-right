@@ -1,34 +1,35 @@
 import random
 
-computer = random.randint(1,100)
-print(computer)
-attempt = 0
 while True:
+    computer = random.randint(1,100)
+    # print(computer)
+    attempt = 0
+    while True:
 
-    user_guess = input("Enter Your Guess(1-100): ")
-    try:
-        user_guess = int(user_guess)
+        user_guess = input("Enter Your Guess(1-100): ")
+        try:
+            user_guess = int(user_guess)
 
-        if user_guess < 1 or user_guess > 100:
-            print("Out of range! Please guess a number between 1 and 100.")
-            continue
-        attempt += 1
-                
-        if user_guess == computer:
-            print(f"You Guessed it right in {attempt} attempts!")
-            user_again = input("Do you want to play again? ").lower().strip()
-            if user_again != 'y':
+            if user_guess < 1 or user_guess > 100:
+                print("Out of range! Please guess a number between 1 and 100.")
+                continue
+            attempt += 1
+                    
+            if user_guess == computer:
+                print(f"You Guessed it right in {attempt} attempts!")
                 break
-            computer = random.randint(1,100)
-            print(computer)
-            attempt = 0
-
-        elif user_guess < computer:
-            print("Guess Higher!")
             
-        else: 
-            print("Guess Lower!")
+            elif user_guess < computer:
+                print("Guess Higher!")
+            
+            else: 
+                print("Guess Lower!")
 
-    except ValueError:
-        print("Invalid input! Please enter a valid number.")
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+    
+    user_again = input("Do you want to play again? (y/n): ").lower().strip()
+    if user_again != 'y':
+        print("Thanks for playing!")
+        break
            

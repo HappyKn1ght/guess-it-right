@@ -1,7 +1,7 @@
 import random
 
 computer = random.randint(1,100)
-print(computer)
+# print(computer)
 attempt = 0
 while True:
 

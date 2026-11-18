@@ -4,9 +4,15 @@ while True:
     computer = random.randint(1,100)
     # print(computer)
     attempt = 0
+    quit_game = False
     while True:
 
-        user_guess = input("Enter Your Guess(1-100): ")
+        user_guess = input("Enter Your Guess(1-100) or 'q' to quit: ").lower().strip()
+        if user_guess == "q":
+            print("\nGAME OVER...\nThanks for playing!")
+            quit_game = True
+            break
+
         try:
             user_guess = int(user_guess)
 
@@ -27,7 +33,10 @@ while True:
 
         except ValueError:
             print("Invalid input! Please enter a valid number.")
-    
+            continue
+    if quit_game:
+        break
+
     user_again = input("Do you want to play again? (y/n): ").lower().strip()
     if user_again != 'y':
         print("Thanks for playing!")
